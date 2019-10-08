@@ -25,7 +25,6 @@ class _MapState extends State<Map> {
           compassEnabled: true,
           onCameraMove: _onCameraMove,
         ),
-        ExhibitionBottomSheet(),
         Positioned(
           top: 50.0,
           right: 15.0,
@@ -63,6 +62,7 @@ class _MapState extends State<Map> {
             ),
           ),
         ),
+        ExhibitionBottomSheet(),
       ],
     );
   }

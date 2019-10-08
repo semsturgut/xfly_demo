@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:xfly_demo/screens/home.dart';
 
 void main() => runApp(MyApp());
@@ -16,27 +15,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: History',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Messages',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Profile',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    Stack(children: <Widget>[
+      SafeArea(child: Map()),
+    ]),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold()
   ];
 
   void _onItemTapped(int index) {
@@ -48,13 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          SafeArea(child: Map()),
-          Center(
-            child: _widgetOptions.elementAt(_selectedIndex),
-          )
-        ],
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -80,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
+        unselectedItemColor: Colors.blueGrey,
         selectedItemColor: Colors.amber[700],
         onTap: _onItemTapped,
       ),

@@ -20,10 +20,10 @@ class _ExhibitionBottomSheetState extends State<ExhibitionBottomSheet>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
-  double get maxHeight => MediaQuery.of(context).size.height - 70.0;
+  double get maxHeight => MediaQuery.of(context).size.height - 80.0;
   double get headerTopMargin =>
-      lerp(20, 20 + MediaQuery.of(context).padding.top);
-  double get headerFontSize => lerp(14, 24);
+      lerp(30, 70 + MediaQuery.of(context).padding.top);
+  double get headerFontSize => lerp(16, 24);
   double get itemBorderRadius => lerp(8, 24);
   double get iconLeftBorderRadius => itemBorderRadius;
   double get iconRightBorderRadius => lerp(8, 0);
