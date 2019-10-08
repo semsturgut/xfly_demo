@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -16,8 +17,48 @@ class _MapState extends State<Map> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SlidingUpPanel(
-        panel: Center(
-          child: Text('This is sliding widget'),
+        panel: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Card(
+
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text('1'),
+                  )),
+                ),
+                Card(
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text('2'),
+                  )),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Card(
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text('1'),
+                  )),
+                ),
+                Card(
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text('2'),
+                  )),
+                )
+              ],
+            ),
+          ],
         ),
         minHeight: 200,
         body: Stack(
