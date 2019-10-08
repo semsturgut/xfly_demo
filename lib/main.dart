@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Scaffold(),
     Scaffold(),
     Scaffold(),
-    Scaffold()
+    Scaffold(),
   ];
 
   void _onItemTapped(int index) {
