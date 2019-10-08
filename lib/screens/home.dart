@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:xfly_demo/exhibition_bottom_sheet/exhibition_bottom_sheet.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Map extends StatefulWidget {
   @override
@@ -9,61 +9,68 @@ class Map extends StatefulWidget {
 
 class _MapState extends State<Map> {
   GoogleMapController mapController;
-  static const _initialPosition = LatLng(12.97, 77.58);
+  static const _initialPosition = LatLng(41.0082, 28.9784);
   LatLng _lastPosition = _initialPosition;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        GoogleMap(
-          initialCameraPosition:
-              CameraPosition(target: _initialPosition, zoom: 10.0),
-          onMapCreated: onCreated,
-          myLocationEnabled: true,
-          mapType: MapType.terrain,
-          compassEnabled: true,
-          onCameraMove: _onCameraMove,
+    return Scaffold(
+      body: SlidingUpPanel(
+        panel: Center(
+          child: Text('This is sliding widget'),
         ),
-        Positioned(
-          top: 50.0,
-          right: 15.0,
-          left: 15.0,
-          child: Container(
-            height: 50.0,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(3.0),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(1.0, 5.0),
-                    blurRadius: 10,
-                    spreadRadius: 3)
-              ],
+        minHeight: 200,
+        body: Stack(
+          children: <Widget>[
+            GoogleMap(
+              initialCameraPosition:
+                  CameraPosition(target: _initialPosition, zoom: 10.0),
+              onMapCreated: onCreated,
+              myLocationEnabled: true,
+              mapType: MapType.terrain,
+              compassEnabled: true,
+              onCameraMove: _onCameraMove,
             ),
-            child: TextField(
-              cursorColor: Colors.black,
-              decoration: InputDecoration(
-                icon: Container(
-                  margin: EdgeInsets.only(left: 20, top: 5),
-                  width: 10,
-                  height: 10,
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.amber[700],
+            Positioned(
+              top: 50.0,
+              right: 15.0,
+              left: 15.0,
+              child: Container(
+                height: 50.0,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(3.0),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(1.0, 5.0),
+                        blurRadius: 10,
+                        spreadRadius: 3)
+                  ],
+                ),
+                child: TextField(
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                    icon: Container(
+                      margin: EdgeInsets.only(left: 20, top: 5),
+                      width: 10,
+                      height: 10,
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    hintText: "Ara",
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 15.0, top: 16.0),
                   ),
                 ),
-                hintText: "Ara",
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(left: 15.0, top: 16.0),
               ),
             ),
-          ),
+          ],
         ),
-        ExhibitionBottomSheet(),
-      ],
+      ),
     );
   }
 
@@ -78,5 +85,4 @@ class _MapState extends State<Map> {
       _lastPosition = position.target;
     });
   }
-
 }

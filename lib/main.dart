@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     Stack(children: <Widget>[
-      SafeArea(child: Map()),
+      Map(),
     ]),
     Scaffold(),
     Scaffold(),
