@@ -13,6 +13,55 @@ class _MapState extends State<Map> {
   static const _initialPosition = LatLng(41.0082, 28.9784);
   LatLng _lastPosition = _initialPosition;
 
+  final onTopContent = new Container(
+    height: 200.0,
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 2.0),
+            child: new Text(
+              "Yeni kesifler",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          new Row(
+            children: <Widget>[
+              new Text(
+                "4,7",
+                style: TextStyle(color: Colors.blue[100]),
+              ),
+              new Icon(
+                Icons.star,
+                color: Colors.blue[100],
+              ),
+              new Icon(
+                Icons.star,
+                color: Colors.blue[100],
+              ),
+              new Icon(
+                Icons.star,
+                color: Colors.blue[100],
+              ),
+              new Icon(
+                Icons.star,
+                color: Colors.blue[100],
+              ),
+              new Icon(
+                Icons.star_half,
+                color: Colors.blue[100],
+              ),
+            ],
+          )
+        ],
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,45 +71,120 @@ class _MapState extends State<Map> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Card(
-
-                  child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text('1'),
-                  )),
+                Expanded(
+                  child: Container(
+                    padding: new EdgeInsets.fromLTRB(6.0, 6.0, 3.0, 3.0),
+                    height: 140.0,
+                    child: new Stack(
+                      children: <Widget>[
+                        new Container(
+                          decoration: new BoxDecoration(
+                              image: new DecorationImage(
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.black.withOpacity(0.3),
+                                    BlendMode.luminosity),
+                                image: AssetImage('assets/images/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0),
+                                  topRight: const Radius.circular(5.0),
+                                  bottomLeft: const Radius.circular(5.0),
+                                  bottomRight: const Radius.circular(5.0))),
+                        ),
+                        onTopContent
+                      ],
+                    ),
+                  ),
                 ),
-                Card(
-                  child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text('2'),
-                  )),
+                Expanded(
+                  child: Container(
+                    padding: new EdgeInsets.fromLTRB(3.0, 6.0, 6.0, 3.0),
+                    height: 140.0,
+                    child: new Stack(
+                      children: <Widget>[
+                        new Container(
+                          decoration: new BoxDecoration(
+                              image: new DecorationImage(
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.black.withOpacity(0.3),
+                                    BlendMode.luminosity),
+                                image: AssetImage('assets/images/3.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0),
+                                  topRight: const Radius.circular(5.0),
+                                  bottomLeft: const Radius.circular(5.0),
+                                  bottomRight: const Radius.circular(5.0))),
+                        ),
+                        onTopContent
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Card(
-                  child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text('1'),
-                  )),
+                Expanded(
+                  child: Container(
+                    padding: new EdgeInsets.fromLTRB(6.0, 3.0, 3.0, 3.0),
+                    height: 140.0,
+                    child: new Stack(
+                      children: <Widget>[
+                        new Container(
+                          decoration: new BoxDecoration(
+                              image: new DecorationImage(
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.black.withOpacity(0.3),
+                                    BlendMode.luminosity),
+                                image: AssetImage('assets/images/1.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0),
+                                  topRight: const Radius.circular(5.0),
+                                  bottomLeft: const Radius.circular(5.0),
+                                  bottomRight: const Radius.circular(5.0))),
+                        ),
+                        onTopContent
+                      ],
+                    ),
+                  ),
                 ),
-                Card(
-                  child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text('2'),
-                  )),
+                Expanded(
+                  child: Container(
+                    padding: new EdgeInsets.fromLTRB(3.0, 3.0, 6.0, 3.0),
+                    height: 140.0,
+                    child: new Stack(
+                      children: <Widget>[
+                        new Container(
+                          decoration: new BoxDecoration(
+                              image: new DecorationImage(
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.black.withOpacity(0.3),
+                                    BlendMode.luminosity),
+                                image: AssetImage('assets/images/2.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0),
+                                  topRight: const Radius.circular(5.0),
+                                  bottomLeft: const Radius.circular(5.0),
+                                  bottomRight: const Radius.circular(5.0))),
+                        ),
+                        onTopContent
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),
           ],
         ),
-        minHeight: 200,
+        minHeight: 300,
         body: Stack(
           children: <Widget>[
             GoogleMap(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:xfly_demo/screens/favorites.dart';
+import 'package:xfly_demo/screens/history.dart';
 import 'package:xfly_demo/screens/home.dart';
+import 'package:xfly_demo/screens/messages.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,9 +22,9 @@ class _MyHomePageState extends State<MyHomePage> {
     Stack(children: <Widget>[
       Map(),
     ]),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    Favorites(),
+    History(),
+    Messages(),
     Scaffold(),
   ];
 
