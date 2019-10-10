@@ -3,6 +3,7 @@ import 'package:xfly_demo/screens/favorites.dart';
 import 'package:xfly_demo/screens/history.dart';
 import 'package:xfly_demo/screens/home.dart';
 import 'package:xfly_demo/screens/messages.dart';
+import 'package:xfly_demo/screens/profileUser.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Favorites(),
     History(),
     Messages(),
-    Scaffold(),
+    ProfileUser(),
   ];
 
   void _onItemTapped(int index) {

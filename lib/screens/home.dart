@@ -9,6 +9,7 @@ class Map extends StatefulWidget {
 }
 
 class _MapState extends State<Map> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   GoogleMapController mapController;
   static const _initialPosition = LatLng(41.0082, 28.9784);
   LatLng _lastPosition = _initialPosition;
@@ -65,6 +66,44 @@ class _MapState extends State<Map> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.person_pin,size: 96,color: Colors.amber[700],),
+                  SizedBox(height: 15,),
+                  Text("Murat Seçmen",
+                    style: TextStyle(color: Colors.grey),)
+                ],
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profil'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Çıkış'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+          ],
+        ),
+      ),
       body: SlidingUpPanel(
         panel: Column(
           children: <Widget>[
@@ -198,8 +237,31 @@ class _MapState extends State<Map> {
             ),
             Positioned(
               top: 50.0,
+              left: 20.0,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 30,
+                        spreadRadius: 1)
+                  ],
+                ),
+                child: IconButton(
+                  onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                  icon: new Icon(
+                    Icons.menu,
+                    color: Colors.amberAccent[100],
+                    size: 36,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 50.0,
               right: 15.0,
-              left: 15.0,
+              left: 80.0,
               child: Container(
                 height: 50.0,
                 width: double.infinity,
@@ -214,22 +276,22 @@ class _MapState extends State<Map> {
                         spreadRadius: 3)
                   ],
                 ),
-                child: TextField(
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    icon: Container(
-                      margin: EdgeInsets.only(left: 20, top: 5),
-                      width: 10,
-                      height: 10,
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.blueAccent,
+                child: Stack(
+                  children: <Widget>[
+                    TextField(
+                      cursorColor: Colors.black,
+                      decoration: InputDecoration(
+                        icon: Container(
+                          margin: EdgeInsets.only(left: 0, top: 5),
+                          width: 10,
+                          height: 10,
+                        ),
+                        hintText: "Ara",
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(left: 0.0, top: 16.0),
                       ),
                     ),
-                    hintText: "Ara",
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(left: 15.0, top: 16.0),
-                  ),
+                  ],
                 ),
               ),
             ),

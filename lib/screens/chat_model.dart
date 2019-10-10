@@ -9,39 +9,33 @@ class ChatModel {
   static final List<ChatModel> dummyData = [
     ChatModel(
       avatarUrl: "https://randomuser.me/api/portraits/women/34.jpg",
-      name: "Laurent",
+      name: "Seda",
       datetime: "20:18",
-      message: "How about meeting tomorrow?",
+      message: "Uçuştan memnun kaldınız mı?",
     ),
     ChatModel(
       avatarUrl: "https://randomuser.me/api/portraits/women/49.jpg",
-      name: "Tracy",
+      name: "Eda",
       datetime: "19:22",
-      message: "I love that idea, it's great!",
+      message: "Bu harika bir fikir!",
     ),
     ChatModel(
       avatarUrl: "https://randomuser.me/api/portraits/women/77.jpg",
-      name: "Claire",
+      name: "Merve",
       datetime: "14:34",
-      message: "I wasn't aware of that. Let me check",
+      message: "Randevu saatiniz güncellenmiştir.",
     ),
     ChatModel(
       avatarUrl: "https://randomuser.me/api/portraits/men/81.jpg",
-      name: "Joe",
+      name: "Ozan",
       datetime: "11:05",
-      message: "Flutter just release 1.0 officially. Should I go for it?",
-    ),
-    ChatModel(
-      avatarUrl: "https://randomuser.me/api/portraits/men/83.jpg",
-      name: "Mark",
-      datetime: "09:46",
-      message: "It totally makes sense to get some extra day-off.",
+      message: "Sorunsuz bir uçuş dileriz!",
     ),
     ChatModel(
       avatarUrl: "https://randomuser.me/api/portraits/men/85.jpg",
-      name: "Williams",
+      name: "Mehmet",
       datetime: "08:15",
-      message: "It has been re-scheduled to next Saturday 7.30pm",
+      message: "Hızlı cevabınız için teşekkürler!",
     ),
   ];
 }

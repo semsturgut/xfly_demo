@@ -58,17 +58,24 @@ class _Favorites extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Colors.white,
-        title: new Text(
-          'Favoriler',
-          style: TextStyle(color: Colors.blueGrey, fontSize: 28),
-        ),
-      ),
       body: Column(
         children: <Widget>[
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(17.0, 50.0, 0.0, 15.0),
+                child: Text(
+                  'Favoriler',
+                  style: TextStyle(
+                      color: Colors.blueGrey[600],
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          ),
           Container(
-            padding: new EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 3.0),
+            padding: new EdgeInsets.fromLTRB(15.0, 12.0, 15.0, 3.0),
             height: 200.0,
             color: Colors.transparent,
             child: new Stack(
@@ -93,7 +100,7 @@ class _Favorites extends State<Favorites> {
             ),
           ),
           Container(
-            padding: new EdgeInsets.fromLTRB(6.0, 3.0, 6.0, 3.0),
+            padding: new EdgeInsets.fromLTRB(15.0, 12.0, 15.0, 3.0),
             height: 200.0,
             child: new Stack(
               children: <Widget>[
