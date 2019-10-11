@@ -345,10 +345,158 @@ class _MapState extends State<Map> {
                 ),
               ),
             ),
+            _buildContainer(),
           ],
         ),
       ),
+    );
+  }
 
+  Widget _buildContainer() {
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 80.0),
+        child: Container(
+          margin: EdgeInsets.symmetric(vertical: 20.0),
+          height: 140.0,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              SizedBox(width: 10.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: _boxes(
+                    "assets/images/1.jpg",
+                    40.738380,
+                    -73.988426,
+                    "Beşiktaş"),
+              ),
+              SizedBox(width: 10.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: _boxes(
+                    "assets/images/2.jpg",
+                    40.761421,
+                    -73.981667,
+                    "Şişli"),
+              ),
+              SizedBox(width: 10.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: _boxes(
+                    "assets/images/3.jpg",
+                    40.732128,
+                    -73.999619,
+                    "Arnavutköy"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _boxes(String _image, double lat, double long, String restaurantName) {
+    return GestureDetector(
+      child: Container(
+        child: new FittedBox(
+          child: Material(
+              color: Colors.white,
+              elevation: 14.0,
+              borderRadius: BorderRadius.circular(24.0),
+              shadowColor: Color(0x802196F3),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    width: 180,
+                    height: 200,
+                    child: ClipRRect(
+                      borderRadius: new BorderRadius.circular(24.0),
+                      child: Image(
+                        fit: BoxFit.cover,
+                        image: AssetImage(_image),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: myDetailsContainer1(restaurantName),
+                    ),
+                  ),
+                ],
+              )),
+        ),
+      ),
+    );
+  }
+
+  Widget myDetailsContainer1(String restaurantName) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Container(
+              child: Text(
+            restaurantName,
+            style: TextStyle(
+                color: Color(0xff6200ee),
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold),
+          )),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+            child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            new Text(
+              "4,7",
+              style: TextStyle(color: Colors.amber),
+            ),
+            new Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            new Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            new Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            new Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            new Icon(
+              Icons.star_half,
+              color: Colors.amber,
+            ),
+            Container(
+                child: Text(
+              "(946)",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 18.0,
+              ),
+            )),
+          ],
+        )),
+        SizedBox(height: 5.0),
+        Container(
+            child: Text(
+          "Uzaklık 1.6 km",
+          style: TextStyle(
+            color: Colors.black54,
+            fontSize: 18.0,
+          ),
+        )),
+      ],
     );
   }
 
@@ -363,7 +511,4 @@ class _MapState extends State<Map> {
       _lastPosition = position.target;
     });
   }
-
 }
-
-
