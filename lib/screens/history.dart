@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xfly_demo/screens/details.dart';
 
 class History extends StatefulWidget {
   @override
@@ -74,53 +75,73 @@ class _History extends State<History> {
               ),
             ],
           ),
-          Container(
-            padding: new EdgeInsets.fromLTRB(15.0, 12.0, 15.0, 3.0),
-            height: 200.0,
-            color: Colors.transparent,
-            child: new Stack(
-              children: <Widget>[
-                new Container(
-                  decoration: new BoxDecoration(
-                      image: new DecorationImage(
-                        colorFilter: new ColorFilter.mode(
-                            Colors.black.withOpacity(0.3),
-                            BlendMode.luminosity),
-                        image: AssetImage('assets/images/2.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: new BorderRadius.only(
-                          topLeft: const Radius.circular(10.0),
-                          topRight: const Radius.circular(10.0),
-                          bottomLeft: const Radius.circular(10.0),
-                          bottomRight: const Radius.circular(10.0))),
-                ),
-                onTopContent,
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Details(imagePath: AssetImage('assets/images/2.jpg'))),
+              );
+            },
+            child: Container(
+              padding: new EdgeInsets.fromLTRB(15.0, 12.0, 15.0, 3.0),
+              height: 200.0,
+              color: Colors.transparent,
+              child: new Stack(
+                children: <Widget>[
+                  new Container(
+                    decoration: new BoxDecoration(
+                        image: new DecorationImage(
+                          colorFilter: new ColorFilter.mode(
+                              Colors.black.withOpacity(0.3),
+                              BlendMode.luminosity),
+                          image: AssetImage('assets/images/2.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: new BorderRadius.only(
+                            topLeft: const Radius.circular(10.0),
+                            topRight: const Radius.circular(10.0),
+                            bottomLeft: const Radius.circular(10.0),
+                            bottomRight: const Radius.circular(10.0))),
+                  ),
+                  onTopContent,
+                ],
+              ),
             ),
           ),
-          Container(
-            padding: new EdgeInsets.fromLTRB(15.0, 12.0, 15.0, 3.0),
-            height: 200.0,
-            child: new Stack(
-              children: <Widget>[
-                new Container(
-                  decoration: new BoxDecoration(
-                      image: new DecorationImage(
-                        colorFilter: new ColorFilter.mode(
-                            Colors.black.withOpacity(0.3),
-                            BlendMode.luminosity),
-                        image: AssetImage('assets/images/1.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: new BorderRadius.only(
-                          topLeft: const Radius.circular(10.0),
-                          topRight: const Radius.circular(10.0),
-                          bottomLeft: const Radius.circular(10.0),
-                          bottomRight: const Radius.circular(10.0))),
-                ),
-                onTopContent,
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Details(imagePath: AssetImage('assets/images/1.jpg'))),
+              );
+            },
+            child: Container(
+              padding: new EdgeInsets.fromLTRB(15.0, 12.0, 15.0, 3.0),
+              height: 200.0,
+              child: new Stack(
+                children: <Widget>[
+                  new Container(
+                    decoration: new BoxDecoration(
+                        image: new DecorationImage(
+                          colorFilter: new ColorFilter.mode(
+                              Colors.black.withOpacity(0.3),
+                              BlendMode.luminosity),
+                          image: AssetImage('assets/images/1.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: new BorderRadius.only(
+                            topLeft: const Radius.circular(10.0),
+                            topRight: const Radius.circular(10.0),
+                            bottomLeft: const Radius.circular(10.0),
+                            bottomRight: const Radius.circular(10.0))),
+                  ),
+                  onTopContent,
+                ],
+              ),
             ),
           ),
         ],

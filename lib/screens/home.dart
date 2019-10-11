@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:xfly_demo/screens/details.dart';
 
 class Map extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _MapState extends State<Map> {
   GoogleMapController mapController;
   static const _initialPosition = LatLng(41.0082, 28.9784);
   LatLng _lastPosition = _initialPosition;
+  bool showDialog = true;
 
   final onTopContent = new Container(
     height: 200.0,
@@ -76,10 +78,17 @@ class _MapState extends State<Map> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.person_pin,size: 96,color: Colors.amber[700],),
-                  SizedBox(height: 15,),
-                  Text("Murat Seçmen",
-                    style: TextStyle(color: Colors.grey),)
+                  CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/pp.jpg"),
+                    radius: 50.0,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    "Murat Seçmen",
+                    style: TextStyle(color: Colors.grey),
+                  )
                 ],
               ),
               decoration: BoxDecoration(
@@ -100,65 +109,87 @@ class _MapState extends State<Map> {
                 Navigator.pop(context);
               },
             ),
-
           ],
         ),
       ),
       body: SlidingUpPanel(
+        defaultPanelState: PanelState.OPEN,
+        maxHeight: 290,
+        minHeight: 40,
         panel: Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: Container(
-                    padding: new EdgeInsets.fromLTRB(6.0, 6.0, 3.0, 3.0),
-                    height: 140.0,
-                    child: new Stack(
-                      children: <Widget>[
-                        new Container(
-                          decoration: new BoxDecoration(
-                              image: new DecorationImage(
-                                colorFilter: new ColorFilter.mode(
-                                    Colors.black.withOpacity(0.3),
-                                    BlendMode.luminosity),
-                                image: AssetImage('assets/images/4.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0),
-                                  topRight: const Radius.circular(5.0),
-                                  bottomLeft: const Radius.circular(5.0),
-                                  bottomRight: const Radius.circular(5.0))),
-                        ),
-                        onTopContent
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Details(
+                                imagePath: AssetImage('assets/images/4.jpg'))),
+                      );
+                    },
+                    child: Container(
+                      padding: new EdgeInsets.fromLTRB(6.0, 6.0, 3.0, 3.0),
+                      height: 140.0,
+                      child: new Stack(
+                        children: <Widget>[
+                          new Container(
+                            decoration: new BoxDecoration(
+                                image: new DecorationImage(
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.black.withOpacity(0.3),
+                                      BlendMode.luminosity),
+                                  image: AssetImage('assets/images/4.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: const Radius.circular(5.0),
+                                    topRight: const Radius.circular(5.0),
+                                    bottomLeft: const Radius.circular(5.0),
+                                    bottomRight: const Radius.circular(5.0))),
+                          ),
+                          onTopContent
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    padding: new EdgeInsets.fromLTRB(3.0, 6.0, 6.0, 3.0),
-                    height: 140.0,
-                    child: new Stack(
-                      children: <Widget>[
-                        new Container(
-                          decoration: new BoxDecoration(
-                              image: new DecorationImage(
-                                colorFilter: new ColorFilter.mode(
-                                    Colors.black.withOpacity(0.3),
-                                    BlendMode.luminosity),
-                                image: AssetImage('assets/images/3.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0),
-                                  topRight: const Radius.circular(5.0),
-                                  bottomLeft: const Radius.circular(5.0),
-                                  bottomRight: const Radius.circular(5.0))),
-                        ),
-                        onTopContent
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Details(
+                                imagePath: AssetImage('assets/images/3.jpg'))),
+                      );
+                    },
+                    child: Container(
+                      padding: new EdgeInsets.fromLTRB(3.0, 6.0, 6.0, 3.0),
+                      height: 140.0,
+                      child: new Stack(
+                        children: <Widget>[
+                          new Container(
+                            decoration: new BoxDecoration(
+                                image: new DecorationImage(
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.black.withOpacity(0.3),
+                                      BlendMode.luminosity),
+                                  image: AssetImage('assets/images/3.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: const Radius.circular(5.0),
+                                    topRight: const Radius.circular(5.0),
+                                    bottomLeft: const Radius.circular(5.0),
+                                    bottomRight: const Radius.circular(5.0))),
+                          ),
+                          onTopContent
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -168,54 +199,74 @@ class _MapState extends State<Map> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: Container(
-                    padding: new EdgeInsets.fromLTRB(6.0, 3.0, 3.0, 3.0),
-                    height: 140.0,
-                    child: new Stack(
-                      children: <Widget>[
-                        new Container(
-                          decoration: new BoxDecoration(
-                              image: new DecorationImage(
-                                colorFilter: new ColorFilter.mode(
-                                    Colors.black.withOpacity(0.3),
-                                    BlendMode.luminosity),
-                                image: AssetImage('assets/images/1.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0),
-                                  topRight: const Radius.circular(5.0),
-                                  bottomLeft: const Radius.circular(5.0),
-                                  bottomRight: const Radius.circular(5.0))),
-                        ),
-                        onTopContent
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Details(
+                                imagePath: AssetImage('assets/images/1.jpg'))),
+                      );
+                    },
+                    child: Container(
+                      padding: new EdgeInsets.fromLTRB(6.0, 3.0, 3.0, 3.0),
+                      height: 140.0,
+                      child: new Stack(
+                        children: <Widget>[
+                          new Container(
+                            decoration: new BoxDecoration(
+                                image: new DecorationImage(
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.black.withOpacity(0.3),
+                                      BlendMode.luminosity),
+                                  image: AssetImage('assets/images/1.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: const Radius.circular(5.0),
+                                    topRight: const Radius.circular(5.0),
+                                    bottomLeft: const Radius.circular(5.0),
+                                    bottomRight: const Radius.circular(5.0))),
+                          ),
+                          onTopContent
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    padding: new EdgeInsets.fromLTRB(3.0, 3.0, 6.0, 3.0),
-                    height: 140.0,
-                    child: new Stack(
-                      children: <Widget>[
-                        new Container(
-                          decoration: new BoxDecoration(
-                              image: new DecorationImage(
-                                colorFilter: new ColorFilter.mode(
-                                    Colors.black.withOpacity(0.3),
-                                    BlendMode.luminosity),
-                                image: AssetImage('assets/images/2.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0),
-                                  topRight: const Radius.circular(5.0),
-                                  bottomLeft: const Radius.circular(5.0),
-                                  bottomRight: const Radius.circular(5.0))),
-                        ),
-                        onTopContent
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Details(
+                                imagePath: AssetImage('assets/images/2.jpg'))),
+                      );
+                    },
+                    child: Container(
+                      padding: new EdgeInsets.fromLTRB(3.0, 3.0, 6.0, 3.0),
+                      height: 140.0,
+                      child: new Stack(
+                        children: <Widget>[
+                          new Container(
+                            decoration: new BoxDecoration(
+                                image: new DecorationImage(
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.black.withOpacity(0.3),
+                                      BlendMode.luminosity),
+                                  image: AssetImage('assets/images/2.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: const Radius.circular(5.0),
+                                    topRight: const Radius.circular(5.0),
+                                    bottomLeft: const Radius.circular(5.0),
+                                    bottomRight: const Radius.circular(5.0))),
+                          ),
+                          onTopContent
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -223,7 +274,6 @@ class _MapState extends State<Map> {
             ),
           ],
         ),
-        minHeight: 300,
         body: Stack(
           children: <Widget>[
             GoogleMap(
@@ -298,6 +348,7 @@ class _MapState extends State<Map> {
           ],
         ),
       ),
+
     );
   }
 
@@ -312,4 +363,7 @@ class _MapState extends State<Map> {
       _lastPosition = position.target;
     });
   }
+
 }
+
+
