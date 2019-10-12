@@ -16,8 +16,7 @@ class _ProfileInstructor extends State<ProfileInstructor> {
             padding: const EdgeInsets.fromLTRB(8.0,50.0,0.0,0.0),
             child: new ListTile(
               leading: new CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/men/81.jpg"),
+                backgroundImage: AssetImage("assets/portraits/81.jpg"),
                 radius: 30.0,
               ),
               title: new Text(

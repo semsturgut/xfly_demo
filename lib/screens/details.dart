@@ -163,8 +163,8 @@ class _Details extends State<Details> {
               padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
               child: new ListTile(
                 trailing: new CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://randomuser.me/api/portraits/men/81.jpg"),
+                  backgroundImage: AssetImage(
+                      "assets/portraits/81.jpg"),
                   radius: 30.0,
                 ),
                 title: new Text(

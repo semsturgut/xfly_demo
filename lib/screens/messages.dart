@@ -30,7 +30,7 @@ class _Messages extends State<Messages> {
                 ListTile(
                   leading: CircleAvatar(
                     radius: 24.0,
-                    backgroundImage: NetworkImage(_model.avatarUrl),
+                    backgroundImage: AssetImage(_model.avatarUrl),
                   ),
                   title: Row(
                     children: <Widget>[

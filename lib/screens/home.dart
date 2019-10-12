@@ -386,7 +386,7 @@ class _MapState extends State<Map> {
 
   Marker besiktasMarker = Marker(
     markerId: MarkerId('besiktas'),
-    position: LatLng(41.0432, 29.0051),
+    position: LatLng(40.9374, 29.3084),
     infoWindow: InfoWindow(title: 'Beşiktaş'),
     icon: BitmapDescriptor.defaultMarkerWithHue(
       BitmapDescriptor.hueAzure,
@@ -395,7 +395,7 @@ class _MapState extends State<Map> {
 
   Marker sisliMarker = Marker(
     markerId: MarkerId('sisli'),
-    position: LatLng(41.0593, 28.9882),
+    position: LatLng(40.9348, 29.3024),
     infoWindow: InfoWindow(title: 'Şişli'),
     icon: BitmapDescriptor.defaultMarkerWithHue(
       BitmapDescriptor.hueAzure,
@@ -404,7 +404,7 @@ class _MapState extends State<Map> {
 
   Marker arnavutkoyMarker = Marker(
     markerId: MarkerId('arnavutkoy'),
-    position: LatLng(41.0678, 29.0421),
+    position: LatLng(40.9306, 29.3180),
     infoWindow: InfoWindow(title: 'Arnavutköy'),
     icon: BitmapDescriptor.defaultMarkerWithHue(
       BitmapDescriptor.hueAzure,
@@ -426,19 +426,19 @@ class _MapState extends State<Map> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: _boxes(
-                    "assets/images/1.jpg", 40.738380, -73.988426, "Beşiktaş"),
+                    "assets/images/1.jpg", 40.9374, 29.3084, "Beşiktaş"),
               ),
               SizedBox(width: 10.0),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: _boxes(
-                    "assets/images/2.jpg", 40.761421, -73.981667, "Şişli"),
+                    "assets/images/2.jpg", 40.9348, 29.3024, "Şişli"),
               ),
               SizedBox(width: 10.0),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: _boxes(
-                    "assets/images/3.jpg", 40.732128, -73.999619, "Arnavutköy"),
+                    "assets/images/3.jpg", 40.9306, 29.3180, "Arnavutköy"),
               ),
             ],
           ),
