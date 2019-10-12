@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xfly_demo/screens/profileInstructor.dart';
 
 class Details extends StatefulWidget {
   final AssetImage imagePath;
@@ -149,20 +150,30 @@ class _Details extends State<Details> {
             ),
           ),
           onTopContent,
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-            child: new ListTile(
-              trailing: new CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/men/81.jpg"),
-                radius: 30.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ProfileInstructor(),
+              ));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+              child: new ListTile(
+                trailing: new CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://randomuser.me/api/portraits/men/81.jpg"),
+                  radius: 30.0,
+                ),
+                title: new Text(
+                  "Ozan Yılmaz",
+                  style:
+                      new TextStyle(fontWeight: FontWeight.w600, fontSize: 24.0),
+                ),
+                subtitle: new Text("Geçmiş uçuş sayısı: 229"),
               ),
-              title: new Text(
-                "Ozan Yılmaz",
-                style:
-                    new TextStyle(fontWeight: FontWeight.w600, fontSize: 24.0),
-              ),
-              subtitle: new Text("Geçmiş uçuş sayısı: 229"),
             ),
           ),
           Padding(
