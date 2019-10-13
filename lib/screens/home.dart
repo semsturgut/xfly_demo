@@ -11,7 +11,6 @@ class Map extends StatefulWidget {
 }
 
 class _MapState extends State<Map> {
-
   ScrollController _sc;
   PanelController _pc;
   bool disableScroll = true;
@@ -189,7 +188,7 @@ class _MapState extends State<Map> {
 
   Widget _panel() {
     return Container(
-      color: Colors.white,
+      color: Colors.grey[100],
       child: ListView.builder(
         padding: EdgeInsets.fromLTRB(0.0, 6.0, 0.0, 0.0),
         itemCount: 1,
@@ -223,7 +222,7 @@ class _MapState extends State<Map> {
                             child: Wrap(
                               children: <Widget>[
                                 Image.asset(
-                                  'assets/images/1.jpg',
+                                  'assets/gifs/1.gif',
                                   fit: BoxFit.cover,
                                   height: 90.0,
                                   width: double.infinity,
@@ -257,7 +256,7 @@ class _MapState extends State<Map> {
                             child: Wrap(
                               children: <Widget>[
                                 Image.asset(
-                                  'assets/images/2.jpg',
+                                  'assets/gifs/5.gif',
                                   fit: BoxFit.cover,
                                   height: 90.0,
                                   width: double.infinity,
@@ -296,7 +295,7 @@ class _MapState extends State<Map> {
                             child: Wrap(
                               children: <Widget>[
                                 Image.asset(
-                                  'assets/images/3.jpg',
+                                  'assets/gifs/3.gif',
                                   fit: BoxFit.cover,
                                   height: 90.0,
                                   width: double.infinity,
@@ -330,7 +329,7 @@ class _MapState extends State<Map> {
                             child: Wrap(
                               children: <Widget>[
                                 Image.asset(
-                                  'assets/images/4.jpg',
+                                  'assets/gifs/4.gif',
                                   fit: BoxFit.cover,
                                   height: 90.0,
                                   width: double.infinity,
@@ -348,8 +347,13 @@ class _MapState extends State<Map> {
                     ),
                   ],
                 ),
-                new Divider(
-                  color: Colors.grey,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                  child: new Divider(
+                    color: Colors.grey,
+                    indent: 16.0,
+                    endIndent: 16.0,
+                  ),
                 ),
                 Text(
                   "Size nasıl yardımcı olabiliriz?",
@@ -358,6 +362,8 @@ class _MapState extends State<Map> {
                 _horizontalSlider(),
                 new Divider(
                   color: Colors.grey,
+                  indent: 16.0,
+                  endIndent: 16.0,
                 ),
                 Text(
                   "Uçuş hikayeleri",
@@ -393,9 +399,11 @@ class _MapState extends State<Map> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
+                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
                   child: new Divider(
                     color: Colors.grey,
+                    indent: 16.0,
+                    endIndent: 16.0,
                   ),
                 ),
                 Text(
@@ -812,5 +820,4 @@ class _MapState extends State<Map> {
       BitmapDescriptor.hueAzure,
     ),
   );
-
 }

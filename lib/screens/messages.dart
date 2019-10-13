@@ -10,6 +10,7 @@ class _Messages extends State<Messages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: new AppBar(
         backgroundColor: Colors.white,
         title: new Text(

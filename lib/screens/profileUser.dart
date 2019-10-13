@@ -9,6 +9,7 @@ class _ProfileUser extends State<ProfileUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       body: new Column(
         children: <Widget>[
           Padding(

@@ -59,6 +59,7 @@ class _History extends State<History> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       body: Column(
         children: <Widget>[
           Row(

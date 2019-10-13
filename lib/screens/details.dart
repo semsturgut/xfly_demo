@@ -121,6 +121,7 @@ class _Details extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       bottomNavigationBar: _buildBottomNavigationBar(),
       body: ListView.builder(
         padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 8.0),
@@ -519,7 +520,7 @@ class _Details extends State<Details> {
                   color: Colors.grey,
                 ),
               ),
-              new Text(
+              Text(
                 "Pilot Yorumları",
                 style: TextStyle(
                     color: Colors.black,
@@ -599,7 +600,7 @@ class _Details extends State<Details> {
               ),
               Text(
                 "Soru Sormak İçin",
-                style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
+                style: TextStyle(fontWeight: FontWeight.w200, fontSize: 18.0),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
