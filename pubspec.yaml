@@ -49,6 +49,7 @@ flutter:
   assets:
     - assets/images/
     - assets/portraits/
+    - assets/gifs/
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

@@ -44,23 +44,23 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.search,size: 32),
+            icon: Icon(Icons.search, size: 32),
             title: Text('Keşfet'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border,size: 32),
+            icon: Icon(Icons.favorite_border, size: 32),
             title: Text('Favoriler'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history,size: 32),
+            icon: Icon(Icons.history, size: 32),
             title: Text('Geçmiş'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail_outline,size: 32),
+            icon: Icon(Icons.mail_outline, size: 32),
             title: Text('Mesajlar'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline,size: 32),
+            icon: Icon(Icons.person_outline, size: 32),
             title: Text('Profil'),
           ),
         ],
