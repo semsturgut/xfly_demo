@@ -4,6 +4,7 @@ import 'package:xfly_demo/screens/history.dart';
 import 'package:xfly_demo/screens/home.dart';
 import 'package:xfly_demo/screens/messages.dart';
 import 'package:xfly_demo/screens/profileUser.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 32),
+            icon: Icon(MdiIcons.homeVariantOutline, size: 32),
             title: Text('Keşfet'),
           ),
           BottomNavigationBarItem(

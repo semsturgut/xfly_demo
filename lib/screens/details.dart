@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:xfly_demo/screens/profileInstructor.dart';
 
 class Details extends StatefulWidget {
@@ -192,13 +193,71 @@ class _Details extends State<Details> {
                   color: Colors.grey,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
-                child: Text(
-                  "Dünyanın en güzel manzaralarından birinin üstünde süzülmeye ne dersiniz? Fethiye ölü denizde unutulmaz bir anınız olsun. Gökyüzünde kuş olmayı isteyen ve pamuklara doğru yolculuk alırken şehri ayaklarının altına almak isteyen insanların yeri...",
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 16.0),
-                ),
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                    child: Icon(
+                      MdiIcons.circle,
+                      size: 12.0,
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 16.0, 8.0),
+                      child: Text(
+                        "Dünyanın en güzel manzaralarından birinin üstünde süzülmeye ne dersiniz?",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                    child: Icon(
+                      MdiIcons.circle,
+                      size: 12.0,
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 16.0, 8.0),
+                      child: Text(
+                        "Fethiye ölü denizde unutulmaz bir anınız olsun.",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                    child: Icon(
+                      MdiIcons.circle,
+                      size: 12.0,
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 16.0, 8.0),
+                      child: Text(
+                        "Gökyüzünde kuş olmayı isteyen ve pamuklara doğru yolculuk alırken şehri ayaklarının altına almak isteyen insanların yeri...",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
@@ -482,8 +541,8 @@ class _Details extends State<Details> {
                     widthFactor: 2.5,
                     child: GoogleMap(
                       myLocationButtonEnabled: false,
-                      initialCameraPosition:
-                      CameraPosition(target: LatLng(40.9374, 29.3084), zoom: 12.0),
+                      initialCameraPosition: CameraPosition(
+                          target: LatLng(40.9374, 29.3084), zoom: 12.0),
                       onMapCreated: onCreated,
                       myLocationEnabled: true,
                       mapType: MapType.normal,
@@ -513,7 +572,10 @@ class _Details extends State<Details> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
               ),
-              Text("08:00 - 12:00 / 13:00 - 17:00",style: TextStyle(fontWeight: FontWeight.w300, fontSize: 24),),
+              Text(
+                "08:00 - 12:00 / 13:00 - 17:00",
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 24),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
                 child: new Divider(
@@ -547,10 +609,11 @@ class _Details extends State<Details> {
                     ),
                   ],
                 ),
-                subtitle: Text("Harika bir uçuştu, tekrar uçmak için sabırsızlanıyorum!!"),
+                subtitle: Text(
+                    "Harika bir uçuştu, tekrar uçmak için sabırsızlanıyorum!!"),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(80.0,0.0,0.0,0.0),
+                padding: const EdgeInsets.fromLTRB(80.0, 0.0, 0.0, 0.0),
                 child: Row(
                   children: <Widget>[
                     new Text(
@@ -642,11 +705,17 @@ class _Details extends State<Details> {
                       children: <Widget>[
                         Text(
                           "594 ₺",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 20.0),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20.0),
                         ),
                         Text(
                           " / UÇUŞ",
-                          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w300, fontSize: 14.0),
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14.0),
                         ),
                       ],
                     ),
