@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:xfly_demo/screens/details.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -11,9 +10,6 @@ class Map extends StatefulWidget {
 }
 
 class _MapState extends State<Map> {
-  ScrollController _sc;
-  PanelController _pc;
-  bool disableScroll = true;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   GoogleMapController mapController;
   static LatLng _initialPosition;
@@ -74,353 +70,331 @@ class _MapState extends State<Map> {
                 ],
               ),
             ),
-            body: SlidingUpPanel(
-              renderPanelSheet: false,
-              defaultPanelState: PanelState.CLOSED,
-              maxHeight: MediaQuery.of(context).size.height,
-              minHeight: 290,
-              panelSnapping: true,
-              backdropEnabled: true,
-              parallaxEnabled: true,
-              backdropTapClosesPanel: true,
-              onPanelSlide: (position) {
-                if (position >= 1.0) {
-                  setState(() {
-                    disableScroll = false;
-                  });
-                } else if (position == 1.0 && _sc.offset == 0.0) {
-                  setState(() {
-                    disableScroll = true;
-                  });
-                } else {
-                  setState(() {
-                    disableScroll = true;
-                  });
-                }
-              },
-              panel: Visibility(visible: _visible, child: _panel()),
-              body: Stack(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),
-                    child: GoogleMap(
-                      myLocationButtonEnabled: false,
-                      initialCameraPosition:
-                          CameraPosition(target: _initialPosition, zoom: 12.0),
-                      onMapCreated: onCreated,
-                      myLocationEnabled: true,
-                      mapType: MapType.normal,
-                      onTap: (a) {
-                        _toggle();
-                      },
-                      compassEnabled: false,
-                      onCameraMove: _onCameraMove,
-                      markers: {besiktasMarker, sisliMarker, arnavutkoyMarker},
-                    ),
+            body: Stack(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
+                  child: GoogleMap(
+                    myLocationButtonEnabled: false,
+                    initialCameraPosition:
+                        CameraPosition(target: _initialPosition, zoom: 12.0),
+                    onMapCreated: onCreated,
+                    myLocationEnabled: true,
+                    mapType: MapType.normal,
+                    onTap: (a) {
+                      _toggle();
+                    },
+                    compassEnabled: false,
+                    onCameraMove: _onCameraMove,
+                    markers: {besiktasMarker, sisliMarker, arnavutkoyMarker},
                   ),
-                  Positioned(
-                    top: 50.0,
-                    left: 20.0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(1.0, 1.0),
-                              blurRadius: 30,
-                              spreadRadius: 1)
-                        ],
-                      ),
-                      child: IconButton(
-                        onPressed: () => _scaffoldKey.currentState.openDrawer(),
-                        icon: new Icon(
-                          Icons.menu,
-                          color: Colors.amberAccent[100],
-                          size: 36,
-                        ),
+                ),
+                Positioned(
+                  top: 50.0,
+                  left: 20.0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 30,
+                            spreadRadius: 1)
+                      ],
+                    ),
+                    child: IconButton(
+                      onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                      icon: new Icon(
+                        Icons.menu,
+                        color: Colors.amberAccent[100],
+                        size: 32,
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 50.0,
-                    right: 15.0,
-                    left: 80.0,
-                    child: Container(
-                      height: 50.0,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3.0),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(1.0, 5.0),
-                              blurRadius: 10,
-                              spreadRadius: 3)
-                        ],
-                      ),
-                      child: Stack(
-                        children: <Widget>[
-                          TextField(
-                            cursorColor: Colors.black,
-                            decoration: InputDecoration(
-                              icon: Container(
-                                margin: EdgeInsets.only(left: 0, top: 5),
-                                width: 10,
-                                height: 10,
-                              ),
-                              hintText: "Ara",
-                              border: InputBorder.none,
-                              contentPadding:
-                                  EdgeInsets.only(left: 0.0, top: 16.0),
+                ),
+                Positioned(
+                  top: 55.0,
+                  right: 15.0,
+                  left: 80.0,
+                  child: Container(
+                    height: 40.0,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(3.0),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(1.0, 5.0),
+                            blurRadius: 10,
+                            spreadRadius: 3)
+                      ],
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        TextField(
+                          cursorColor: Colors.black,
+                          decoration: InputDecoration(
+                            icon: Container(
+                              margin: EdgeInsets.only(left: 0, top: 5),
+                              width: 10,
+                              height: 10,
                             ),
+                            hintText: "Ara",
+                            border: InputBorder.none,
+                            contentPadding:
+                                EdgeInsets.only(left: 0.0, top: 11.0),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                  _buildBottomSlider(),
-                ],
-              ),
-            ),
-          );
+                ),
+                _buildBottomSlider(),
+                Visibility(child: _panel(),visible: _visible),
+              ],
+            ));
   }
 
   Widget _panel() {
-    return Container(
-      color: Colors.grey[100],
-      child: ListView.builder(
-        padding: EdgeInsets.fromLTRB(0.0, 6.0, 0.0, 0.0),
-        itemCount: 1,
-        controller: _sc,
-        physics: disableScroll
-            ? NeverScrollableScrollPhysics()
-            : ClampingScrollPhysics(),
-        itemBuilder: (BuildContext context, int i) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Details(
-                                imagePath: AssetImage('assets/gifs/1.gif'),
+    return SizedBox.expand(
+      child: DraggableScrollableSheet(
+        minChildSize: 0.5,
+        builder: (BuildContext context, ScrollController scrollController) {
+          return Container(
+            color: Colors.grey[100],
+            child: ListView.builder(
+              padding: EdgeInsets.fromLTRB(0.0, 6.0, 0.0, 0.0),
+              itemCount: 1,
+              controller: scrollController,
+              itemBuilder: (BuildContext context, int i) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Details(
+                                      imagePath: AssetImage('assets/gifs/1.gif'),
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 140.0,
+                                child: Card(
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/gifs/1.gif',
+                                        fit: BoxFit.cover,
+                                        height: 90.0,
+                                        width: double.infinity,
+                                      ),
+                                      onBottomContent('Babadağ, Fethiye')
+                                    ],
+                                  ),
+                                  clipBehavior: Clip.antiAlias,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                ),
                               ),
                             ),
-                          );
-                        },
-                        child: Container(
-                          height: 140.0,
-                          child: Card(
-                            child: Wrap(
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/gifs/1.gif',
-                                  fit: BoxFit.cover,
-                                  height: 90.0,
-                                  width: double.infinity,
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Details(
+                                      imagePath: AssetImage('assets/gifs/5.gif'),
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 140.0,
+                                child: Card(
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/gifs/5.gif',
+                                        fit: BoxFit.cover,
+                                        height: 90.0,
+                                        width: double.infinity,
+                                      ),
+                                      onBottomContent('Abant, Bolu')
+                                    ],
+                                  ),
+                                  clipBehavior: Clip.antiAlias,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
                                 ),
-                                onBottomContent('Babadağ, Fethiye')
-                              ],
+                              ),
                             ),
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Details(
+                                      imagePath: AssetImage('assets/gifs/3.gif'),
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 140.0,
+                                child: Card(
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/gifs/3.gif',
+                                        fit: BoxFit.cover,
+                                        height: 90.0,
+                                        width: double.infinity,
+                                      ),
+                                      onBottomContent('Kaş, Antalya')
+                                    ],
+                                  ),
+                                  clipBehavior: Clip.antiAlias,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                ),
+                              ),
                             ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Details(
+                                      imagePath: AssetImage('assets/gifs/4.gif'),
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 140.0,
+                                child: Card(
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/gifs/4.gif',
+                                        fit: BoxFit.cover,
+                                        height: 90.0,
+                                        width: double.infinity,
+                                      ),
+                                      onBottomContent('İnönü C Tepesi, Eskişehir')
+                                    ],
+                                  ),
+                                  clipBehavior: Clip.antiAlias,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                        child: new Divider(
+                          color: Colors.grey,
+                          indent: 16.0,
+                          endIndent: 16.0,
+                        ),
+                      ),
+                      Text(
+                        "Size nasıl yardımcı olabiliriz?",
+                        style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
+                      ),
+                      _horizontalSlider(),
+                      new Divider(
+                        color: Colors.grey,
+                        indent: 16.0,
+                        endIndent: 16.0,
+                      ),
+                      Text(
+                        "Uçuş hikayeleri",
+                        style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
+                      ),
+                      Container(
+                        height: 330.0,
+                        padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+                        child: Card(
+                          child: Wrap(
+                            children: <Widget>[
+                              Image.asset(
+                                'assets/images/4.jpg',
+                                fit: BoxFit.cover,
+                                height: 250.0,
+                                width: double.infinity,
+                              ),
+                              Center(
+                                child: OutlineButton(
+                                  child: Text(
+                                    'Bütün hikayeleri gör',
+                                    style: TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )
+                            ],
+                          ),
+                          clipBehavior: Clip.antiAlias,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Details(
-                                imagePath: AssetImage('assets/gifs/5.gif'),
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          height: 140.0,
-                          child: Card(
-                            child: Wrap(
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/gifs/5.gif',
-                                  fit: BoxFit.cover,
-                                  height: 90.0,
-                                  width: double.infinity,
-                                ),
-                                onBottomContent('Abant, Bolu')
-                              ],
-                            ),
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                        child: new Divider(
+                          color: Colors.grey,
+                          indent: 16.0,
+                          endIndent: 16.0,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Details(
-                                imagePath: AssetImage('assets/gifs/3.gif'),
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          height: 140.0,
-                          child: Card(
-                            child: Wrap(
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/gifs/3.gif',
-                                  fit: BoxFit.cover,
-                                  height: 90.0,
-                                  width: double.infinity,
-                                ),
-                                onBottomContent('Kaş, Antalya')
-                              ],
-                            ),
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-                        ),
+                      Text(
+                        "Yardıma mı ihtiyacınız var?",
+                        style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
                       ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Details(
-                                imagePath: AssetImage('assets/gifs/4.gif'),
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          height: 140.0,
-                          child: Card(
-                            child: Wrap(
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/gifs/4.gif',
-                                  fit: BoxFit.cover,
-                                  height: 90.0,
-                                  width: double.infinity,
-                                ),
-                                onBottomContent('İnönü C Tepesi, Eskişehir')
-                              ],
-                            ),
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-                        ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
                       ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
-                  child: new Divider(
-                    color: Colors.grey,
-                    indent: 16.0,
-                    endIndent: 16.0,
-                  ),
-                ),
-                Text(
-                  "Size nasıl yardımcı olabiliriz?",
-                  style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
-                ),
-                _horizontalSlider(),
-                new Divider(
-                  color: Colors.grey,
-                  indent: 16.0,
-                  endIndent: 16.0,
-                ),
-                Text(
-                  "Uçuş hikayeleri",
-                  style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
-                ),
-                Container(
-                  height: 330.0,
-                  padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                  child: Card(
-                    child: Wrap(
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/4.jpg',
-                          fit: BoxFit.cover,
-                          height: 250.0,
-                          width: double.infinity,
+                      OutlineButton(
+                        child: Text(
+                          'Destek Al',
+                          style: TextStyle(fontWeight: FontWeight.w900),
                         ),
-                        Center(
-                          child: OutlineButton(
-                            child: Text(
-                              'Bütün hikayeleri gör',
-                              style: TextStyle(fontWeight: FontWeight.w900),
-                            ),
-                            onPressed: () {},
-                          ),
-                        )
-                      ],
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
-                  child: new Divider(
-                    color: Colors.grey,
-                    indent: 16.0,
-                    endIndent: 16.0,
-                  ),
-                ),
-                Text(
-                  "Yardıma mı ihtiyacınız var?",
-                  style: TextStyle(fontWeight: FontWeight.w200, fontSize: 28.0),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
-                ),
-                OutlineButton(
-                  child: Text(
-                    'Destek Al',
-                    style: TextStyle(fontWeight: FontWeight.w900),
-                  ),
-                  onPressed: () {},
-                ),
-              ],
+                );
+              },
             ),
           );
         },
@@ -438,19 +412,6 @@ class _MapState extends State<Map> {
   void initState() {
     super.initState();
     _getUserLocation();
-    _sc = ScrollController();
-    _pc = PanelController();
-    _sc.addListener(() {
-      if (_sc.offset >= 1.0) {
-        setState(() {
-          disableScroll = false;
-        });
-      } else {
-        setState(() {
-          disableScroll = true;
-        });
-      }
-    });
   }
 
   void _onCameraMove(CameraPosition position) {
@@ -598,7 +559,7 @@ class _MapState extends State<Map> {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 80.0),
+        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 20.0),
           height: 140.0,

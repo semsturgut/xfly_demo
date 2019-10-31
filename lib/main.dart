@@ -18,8 +18,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     Stack(children: <Widget>[
       Map(),
@@ -43,25 +41,27 @@ class _MyHomePageState extends State<MyHomePage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 12,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(MdiIcons.homeVariantOutline, size: 32),
+            icon: Icon(MdiIcons.homeVariantOutline, size: 30),
             title: Text('Keşfet'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border, size: 32),
+            icon: Icon(Icons.favorite_border, size: 30),
             title: Text('Favoriler'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history, size: 32),
+            icon: Icon(Icons.history, size: 30),
             title: Text('Geçmiş'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail_outline, size: 32),
+            icon: Icon(Icons.mail_outline, size: 30),
             title: Text('Mesajlar'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline, size: 32),
+            icon: Icon(Icons.person_outline, size: 30),
             title: Text('Profil'),
           ),
         ],
